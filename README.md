@@ -16,3 +16,16 @@ Taxa (a ser calculada conforme tabela abaixo)
 # Tecnologias: 
 Backend desenvolvido em Java 11, Spring, H2  
 Frontend em Angular 18, Bootstrap 5
+
+# Screenshots
+Menu principal
+![image](https://github.com/user-attachments/assets/164cb59e-48ef-4322-9e68-832bf801dad2)
+
+Criar um agendamento 
+![image](https://github.com/user-attachments/assets/1ccef1fa-1c21-4d88-91f8-7f9990ae0265)
+
+Consultar agendamentos
+![image](https://github.com/user-attachments/assets/bef78b63-1eaf-4bbc-bbbc-c2cf73eb797b)
+
+
+
