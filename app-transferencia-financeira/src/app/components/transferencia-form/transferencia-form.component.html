@@ -1,0 +1,96 @@
+<div class="container mt-5">
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h2>Agendamento de Transferencia Financeira</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="contaOrigem" class="form-label">Conta de Origem</label>
+            <input 
+              type="text" 
+              id="contaOrigem" 
+              formControlName="contaOrigem" 
+              class="form-control" 
+              placeholder="10 digitos"
+              [ngClass]="{'is-invalid': formulario.get('contaOrigem')?.touched && formulario.get('contaOrigem')?.invalid}"
+            >
+            <div class="invalid-feedback" *ngIf="formulario.get('contaOrigem')?.errors?.['required']">
+              Conta de Origem obrigatória
+            </div>
+            <div class="invalid-feedback" *ngIf="formulario.get('contaOrigem')?.errors?.['pattern']">
+              Conta de Origem deve ter 10 digitos
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="destinationAccount" class="form-label">Conta de Destino</label>
+            <input 
+              type="text" 
+              id="contaDestino" 
+              formControlName="contaDestino" 
+              class="form-control" 
+              placeholder="10 digitos"
+              [ngClass]="{'is-invalid': formulario.get('contaDestino')?.touched && formulario.get('contaDestino')?.invalid}"
+            >
+            <div class="invalid-feedback" *ngIf="formulario.get('contaDestino')?.errors?.['required']">
+              Conta de Destino obrigatória
+            </div>
+            <div class="invalid-feedback" *ngIf="formulario.get('contaDestino')?.errors?.['pattern']">
+               Conta de Destino deve ter 10 digitos
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="valorTransferencia" class="form-label">Valor da Transferencia</label>
+            <input 
+              type="number" 
+              id="valorTransferencia" 
+              formControlName="valorTransferencia" 
+              class="form-control" 
+              placeholder="Digite o valor da transferencia"
+              step="0.01"
+              min="0.01"
+              [ngClass]="{'is-invalid': formulario.get('valorTransferencia')?.touched && formulario.get('valorTransferencia')?.invalid}"
+            >
+            <div class="invalid-feedback" *ngIf="formulario.get('valorTransferencia')?.errors?.['required']">
+              Valor da Transferencia obrigatória
+            </div>
+            <div class="invalid-feedback" *ngIf="formulario.get('valorTransferencia')?.errors?.['min']">
+              Valor da Transferencia não deve ser 0
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="dataTransferencia" class="form-label">Data de Transferencia</label>
+            <input 
+              type="date" 
+              id="dataTransferencia" 
+              formControlName="dataTransferencia" 
+              class="form-control"
+              [ngClass]="{'is-invalid': formulario.get('dataTransferencia')?.touched && formulario.get('dataTransferencia')?.invalid}"
+            >
+            <div class="invalid-feedback" *ngIf="formulario.get('dataTransferencia')?.errors?.['required']">
+              Data de Transferencia obrigatória
+            </div>
+          </div>
+  
+          <div class="alert alert-danger" *ngIf="mensagem">
+            {{ mensagem }}
+          </div>
+  
+          <div class="d-grid gap-2">
+            <button 
+              type="submit" 
+              class="btn btn-primary" 
+              [disabled]="enviandoRequisicao"
+            >
+              <span *ngIf="enviandoRequisicao" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+              Agendar Transfêrencia
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

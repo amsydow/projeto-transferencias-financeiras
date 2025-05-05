@@ -1,0 +1,24 @@
+<div class="container mt-5">
+    <h2>Agendamentos</h2>
+    <button class="btn btn-primary mb-3" routerLink="/agendamento">Novo</button>
+    <table class="table table-striped" *ngIf="!carregando && listaTransferencias.length">
+      <thead><tr>
+        <th>ID</th><th>Conta Origem</th><th>Conta Destino</th><th>Valor transferencia</th><th>Taxa</th><th>Data Transferencia</th><th>Data Agendamento</th>
+      </tr></thead>
+      <tbody>
+        <tr *ngFor="let t of listaTransferencias">
+          <td>{{t.id}}</td>
+          <td>{{t.contaOrigem}}</td>
+          <td>{{t.contaDestino}}</td>
+          <td>{{t.valorTransferencia | currency:'BRL'}}</td>
+          <td>{{t.taxa | currency:'BRL'}}</td>
+          <td>{{t.dataTransferencia | date:'dd/MM/yyyy'}}</td>
+          <td>{{t.dataAgendamento | date:'dd/MM/yyyy'}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="carregando" class="text-center">Carregando...</div>
+    <div *ngIf="!carregando && !listaTransferencias.length" class="alert alert-info">
+      Nenhum agendamento agendado
+    </div>
+  </div>
