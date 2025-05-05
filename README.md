@@ -9,7 +9,7 @@ Valor da transferência,
 Data da transferência,
 Taxa (a ser calculada conforme tabela abaixo)
 
-![image](https://github.com/user-attachments/assets/8545b249-b2ef-431e-a63f-da944366defb)
+![image](https://github.com/user-attachments/assets/6b683965-1732-4df6-b4e4-60e05e8e680d)
 
 
 
